@@ -12,11 +12,11 @@ var series = require('stream-series');
 var appRoot = 'src/main/resources/static/';
 var appDist = appRoot + 'dist/';
 var libDist = appDist + 'lib/';
-var bower_components = 'bower_components/';
+var bower_components = appRoot + 'bower_components/';
 
 var angularLibs = {
     name: 'angular',
-    js: [
+    src: [
         bower_components + 'angular/angular.min.js',
         bower_components + 'angular-route/angular-route.min.js'
     ]
@@ -45,7 +45,7 @@ var app2 = {
 };
 
 var concatJsTask = function (lib) {
-    return gulp.src(lib.js)
+    return gulp.src(lib.src)
         .pipe(concat(lib.name + '.js'))
         .pipe(hash())
         .pipe(filenames(lib.name + 'Js'))
@@ -101,3 +101,31 @@ gulp.task('inject:app2', ['scripts:app2'], function () {
 gulp.task('scripts:all', ['inject:app1', 'inject:app2']);
 
 gulp.task('default', ['scripts:all']);
+
+/**
+ * dev-build with watch and manual reload of browser
+ */
+var devInjectHtmlTask = function (appConfig) {
+    var target = gulp.src(appConfig.html);
+    var angularStream = gulp.src(angularLibs.src, {read: false});
+    var appStream = gulp.src(appConfig.src, {read: false});
+
+    return target
+        .pipe(inject(series(angularStream, appStream), {read: false, relative: true}))
+        .pipe(gulp.dest(appConfig.htmlDest));
+};
+
+gulp.task('dev-build:app1', function () {
+    console.log('dev-build:app1');
+    return devInjectHtmlTask(app1);
+});
+
+gulp.task('dev-build:app2', function () {
+    console.log('dev-build:app2');
+    return devInjectHtmlTask(app2);
+});
+
+gulp.task('dev-watch:all', ['dev-build:app1', 'dev-build:app2'], function () {
+    gulp.watch(app1.src, ['dev-build:app1']);
+    gulp.watch(app2.src, ['dev-build:app2']);
+});
