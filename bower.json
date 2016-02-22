@@ -1,0 +1,21 @@
+{
+  "name": "frontend-maven-build",
+  "description": "An example front end build with Maven",
+  "main": "index.js",
+  "authors": [
+    "Andreas Pedro Garcia-Vedal"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/apgv/frontend-maven-build",
+  "moduleType": [
+    "amd"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
