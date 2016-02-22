@@ -1,5 +1,5 @@
 # frontend-maven-build
-An example front end build with Maven
+An example front end build with Gulp and Maven
 
 ## Run the application
 To run the application you need
