@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app1">
+<head>
+    <meta charset="UTF-8">
+    <title>App 1</title>
+
+    <link rel="stylesheet" type="text/css" href="app1.css">
+</head>
+<body>
+
+<h1>App 1</h1>
+
+<div ng-controller="App1Ctrl" ng-cloak>
+    <div>Greeting: {{model.greeting}}</div>
+    <button ng-click="sayHi()">Change greeting</button>
+</div>
+<br/>
+<a href="../index.html">Back to index</a>
+
+<!--inject:js-->
+<script src="../dist/lib/angular-06cde531.js"></script>
+<script src="../dist/app1-6c6e3ae2.js"></script>
+<!--endinject-->
+</body>
+</html>
