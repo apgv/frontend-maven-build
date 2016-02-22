@@ -1,5 +1,11 @@
+#IntelliJ
 .idea/
-
 *.iml
 
 /target
+
+node_modules/
+bower_components/
+
+#JRebel
+rebel.xml
