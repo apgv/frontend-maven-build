@@ -32,6 +32,16 @@ var app1 = {
     ]
 };
 
+var app2 = {
+    name: 'app2',
+    html: appRoot + 'app2/app2.html',
+    js: [
+        appRoot + 'app2/app2.js',
+        appRoot + 'app2/controllers/**/*.js',
+        appRoot + 'app2/services/**/*.js'
+    ]
+};
+
 var concatJsTask = function (lib) {
     return gulp.src(lib.js)
         .pipe(concat(lib.name + '.js'))
@@ -70,6 +80,28 @@ gulp.task('inject:app1', ['scripts:app1'], function () {
         .pipe(gulp.dest(appRoot + 'app1/'));
 });
 
-gulp.task('scripts:all', ['inject:app1']);
+gulp.task('scripts:app2', ['clean', 'build:angular-libs'], function () {
+    return gulp.src(app2.js)
+        .pipe(sourcemaps.init())
+        .pipe(concat(app2.name + '.js'))
+        .pipe(ngAnnotate())
+        .pipe(uglify())
+        .pipe(hash())
+        .pipe(filenames(app2.name + 'Js'))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(appDist));
+});
+
+gulp.task('inject:app2', ['scripts:app2'], function () {
+    var target = gulp.src(app2.html);
+    var angularStream = gulp.src(libDist + filenames.get(angularLibs.name + 'Js'), {read: false});
+    var appStream = gulp.src(appDist + filenames.get(app2.name + 'Js'), {read: false});
+
+    return target
+        .pipe(inject(series(angularStream, appStream), {read: false, relative: true}))
+        .pipe(gulp.dest(appRoot + 'app2/'));
+});
+
+gulp.task('scripts:all', ['inject:app1', 'inject:app2']);
 
 gulp.task('default', ['scripts:all']);
