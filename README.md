@@ -23,4 +23,4 @@ What happens next is:
 * Then it will run `npm install` followed by `bower install` and `gulp` (the default task)
 * And lastly start the Spring Boot application
 
-To see the application visit [localhost:8080](http://localhost:8080)
+To see the application visit http://localhost:8080
