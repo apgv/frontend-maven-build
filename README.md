@@ -16,7 +16,7 @@ To run the application you need
 * [Maven](http://maven.apache.org/)
 
 You can run the application with `mvn spring-boot:run` or you can build the JAR file with
-`mvn clean package` and run the JAR  with `java -jar target/frontend-maven-build-0.0.1-SNAPSHOT.jar`
+`mvn clean package` and run the JAR with `java -jar target/frontend-maven-build-0.0.1-SNAPSHOT.jar`
 
 What happens next is:
 * Maven will resolve all dependencies and install node and npm local to the project
