@@ -52,7 +52,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!--Alternative one uses the globally installed programs-->
+            <!--Alternative Exec Maven Plugin uses the globally installed programs-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -97,7 +97,7 @@
                 </executions>
             </plugin>
 
-            <!--Alternative two installs node and npm local to the project-->
+            <!--Alternative frontend-maven-plugin installs node and npm local to the project-->
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
