@@ -28,6 +28,11 @@
     "gulp-ng-annotate": "^1.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.2",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.21",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.7",
+    "karma-junit-reporter": "^0.3.8",
     "stream-series": "^0.1.1"
   }
 }
