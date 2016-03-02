@@ -1,5 +1,5 @@
 # frontend-maven-build
-An example AngularJS multi app front end build with Gulp and Maven.
+An example AngularJS multi app front end build with Gulp and Maven using [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin).
 
 ## More details
 The project is using Maven to build the Java code and Gulp to build the multi app AngularJS front end.
@@ -8,7 +8,7 @@ It's two kinds of dependencies: tools and application code. The tools are used t
 * Tools are handeled by npm with dependencies defined in package.json
 * Application are handeled by bower with dependencies defined in bower.json
 
-npm is configured to automatically run bower. So `npm install` will run `bower install` behind the scenes.
+npm is configured to automatically run bower. So after `npm install` is finished it will run `bower install`.
 
 ## Run the application
 To run the application you need
