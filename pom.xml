@@ -84,6 +84,9 @@
                         <goals>
                             <goal>karma</goal>
                         </goals>
+                        <configuration>
+                            <karmaConfPath>karma.conf.js --single-run</karmaConfPath>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
