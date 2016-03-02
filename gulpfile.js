@@ -14,6 +14,9 @@ var appDist = appRoot + 'dist/';
 var libDist = appDist + 'lib/';
 var bower_components = appRoot + 'bower_components/';
 
+var IGNORE = '!';
+var TEST_FILES = '*_test.js';
+
 var angularLibs = {
     name: 'angular',
     src: [
@@ -27,6 +30,7 @@ var app1 = {
     html: appRoot + 'app1/app1.html',
     htmlDest: appRoot + 'app1/',
     src: [
+        IGNORE + appRoot + 'app1/**/' + TEST_FILES,
         appRoot + 'app1/app1.js',
         appRoot + 'app1/controllers/**/*.js',
         appRoot + 'app1/services/**/*.js'
@@ -38,6 +42,7 @@ var app2 = {
     html: appRoot + 'app2/app2.html',
     htmlDest: appRoot + 'app2/',
     src: [
+        IGNORE + appRoot + 'app2/**/' + TEST_FILES,
         appRoot + 'app2/app2.js',
         appRoot + 'app2/controllers/**/*.js',
         appRoot + 'app2/services/**/*.js'
