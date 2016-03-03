@@ -1,8 +1,6 @@
 'use strict';
 
-var app2 = angular.module('app2', [
-    'ngRoute'
-]);
+var app2 = angular.module('app2', ['ngRoute']);
 
 app2.config(function ($routeProvider) {
     $routeProvider.when('/app2', {
