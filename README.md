@@ -14,6 +14,7 @@ npm is configured to automatically run bower. So after `npm install` is finished
 To run the application you need
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Maven](http://maven.apache.org/)
+* [PhantomJS](http://phantomjs.org/) (headless testing)
 
 You can run the application with `mvn spring-boot:run` or you can build the JAR file with
 `mvn clean package` and run the JAR with `java -jar target/frontend-maven-build-0.0.1-SNAPSHOT.jar`
