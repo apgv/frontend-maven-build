@@ -153,7 +153,6 @@
                                     <arguments>
                                         <argument>start</argument>
                                         <argument>karma.conf.ci.js</argument>
-                                        <argument>--single-run</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
