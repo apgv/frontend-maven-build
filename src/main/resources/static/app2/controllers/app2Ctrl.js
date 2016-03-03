@@ -1,8 +1,11 @@
 'use strict';
 
-angular.module('app2')
-    .controller('App2Ctrl', function ($scope) {
-        $scope.greetingFromController = function () {
-            return 'App2Ctrl says hi';
-        }
-    });
+var app2 = angular.module('app2');
+
+app2.controller('App2Ctrl', function (GreeterService) {
+    var ctrl = this;
+
+    ctrl.greetingFromController = function () {
+        return GreeterService.greet('App2Ctrl');
+    }
+});

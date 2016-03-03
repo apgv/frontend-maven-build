@@ -4,15 +4,15 @@ describe('sharedServices module', function () {
 
     beforeEach(module('sharedServices'));
 
-    describe('GreetingService', function () {
-        var greetingService;
+    describe('GreeterService', function () {
+        var greeterService;
 
-        beforeEach(inject(function (GreetingService) {
-            greetingService = GreetingService;
+        beforeEach(inject(function (GreeterService) {
+            greeterService = GreeterService;
         }));
 
         it('should return greeting', function () {
-            expect(greetingService.greet('test')).toEqual('test says hi');
+            expect(greeterService.greet('test')).toEqual('test says hi');
         });
     });
 });

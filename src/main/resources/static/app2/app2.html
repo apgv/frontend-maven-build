@@ -8,17 +8,18 @@
 </head>
 <body>
 
-<h1>App 1</h1>
+<h1>App 2</h1>
 
-<div ng-controller="App2Ctrl" ng-cloak>
-    <div>Greeting: {{greetingFromController()}}</div>
+<div ng-controller="App2Ctrl as ctrl2" ng-cloak>
+    <div>Greeting: {{ctrl2.greetingFromController()}}</div>
 </div>
 <br/>
 <a href="../index.html">Back to index</a>
 
 <!--inject:js-->
 <script src="../dist/lib/angular-06cde531.js"></script>
-<script src="../dist/app2-570acf88.js"></script>
+<script src="../dist/commonAppLibs-f7e53ee7.js"></script>
+<script src="../dist/app2-75ca3254.js"></script>
 <!--endinject-->
 </body>
 </html>

@@ -1,12 +1,15 @@
 'use strict';
 
-angular.module('app1')
-    .controller('App1Ctrl', function ($scope) {
-        $scope.model = {
-            greeting: 'Hello'
-        };
+var app1 = angular.module('app1');
 
-        $scope.sayHi = function () {
-            $scope.model.greeting = $scope.model.greeting === 'Hello' ? 'Function says hi' : 'Hello';
-        }
-    });
+app1.controller('App1Ctrl', function (GreeterService) {
+    var ctrl = this;
+
+    ctrl.model = {
+        greeting: ''
+    };
+
+    ctrl.sayHi = function () {
+        ctrl.model.greeting = GreeterService.greet('AppCtrl1');
+    }
+});

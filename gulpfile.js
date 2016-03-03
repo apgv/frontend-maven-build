@@ -25,6 +25,14 @@ var angularLibs = {
     ]
 };
 
+var commonAppLibs = {
+    name: 'commonAppLibs',
+    src: [
+        IGNORE + appRoot + '/common/**/' + TEST_FILES,
+        appRoot + '/common/**/*.js'
+    ]
+};
+
 var app1 = {
     name: 'app1',
     html: appRoot + 'app1/app1.html',
@@ -72,10 +80,11 @@ var angularScriptsTask = function (appConfig) {
 var injectAppJsHtmlTask = function (appConfig) {
     var target = gulp.src(appConfig.html);
     var angularStream = gulp.src(libDist + filenames.get(angularLibs.name + 'Js'), {read: false});
+    var commonAppLibsStream = gulp.src(appDist + filenames.get(commonAppLibs.name + 'Js'), {read: false});
     var appStream = gulp.src(appDist + filenames.get(appConfig.name + 'Js'), {read: false});
 
     return target
-        .pipe(inject(series(angularStream, appStream), {read: false, relative: true}))
+        .pipe(inject(series(angularStream, commonAppLibsStream, appStream), {read: false, relative: true}))
         .pipe(gulp.dest(appConfig.htmlDest));
 };
 
@@ -87,7 +96,11 @@ gulp.task('build:angular-libs', function () {
     return concatJsTask(angularLibs);
 });
 
-gulp.task('scripts:app1', ['clean', 'build:angular-libs'], function () {
+gulp.task('build:common-libs', function () {
+    return angularScriptsTask(commonAppLibs);
+});
+
+gulp.task('scripts:app1', ['clean', 'build:angular-libs', 'build:common-libs'], function () {
     return angularScriptsTask(app1);
 });
 
@@ -95,7 +108,7 @@ gulp.task('inject:app1', ['scripts:app1'], function () {
     return injectAppJsHtmlTask(app1);
 });
 
-gulp.task('scripts:app2', ['clean', 'build:angular-libs'], function () {
+gulp.task('scripts:app2', ['clean', 'build:angular-libs', 'build:common-libs'], function () {
     return angularScriptsTask(app2);
 });
 
@@ -113,10 +126,11 @@ gulp.task('default', ['scripts:all']);
 var devInjectHtmlTask = function (appConfig) {
     var target = gulp.src(appConfig.html);
     var angularStream = gulp.src(angularLibs.src, {read: false});
+    var commonAppLibsStream = gulp.src(commonAppLibs.src, {read: false});
     var appStream = gulp.src(appConfig.src, {read: false});
 
     return target
-        .pipe(inject(series(angularStream, appStream), {read: false, relative: true}))
+        .pipe(inject(series(angularStream, commonAppLibsStream, appStream), {read: false, relative: true}))
         .pipe(gulp.dest(appConfig.htmlDest));
 };
 

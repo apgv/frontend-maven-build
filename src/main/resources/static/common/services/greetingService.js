@@ -2,7 +2,7 @@
 
 var sharedServices = angular.module('sharedServices', []);
 
-sharedServices.factory('GreetingService', function () {
+sharedServices.factory('GreeterService', function () {
     var service = {};
 
     service.greet = function (greeter) {

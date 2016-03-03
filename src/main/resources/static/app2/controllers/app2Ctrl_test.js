@@ -5,13 +5,33 @@ describe('app2 module', function () {
     beforeEach(module('app2'));
 
     describe('app2 App2Ctrl', function () {
-        it('should ...', inject(function ($controller) {
-            var scope = {};
+        var app2Ctrl, greeterService;
 
-            var app2Ctrl = $controller('App2Ctrl', {$scope: scope});
+        beforeEach(module(function ($provide) {
+            greeterService = {
+                greet: function () {
+                    return 'mock says hi'
+                }
+            };
 
-            expect(app2Ctrl).toBeDefined();
-        }))
+            $provide.value('GreeterService', greeterService);
+        }));
+
+        beforeEach(inject(function ($controller) {
+            app2Ctrl = $controller('App2Ctrl');
+        }));
+
+        it('should call GreeterService', function () {
+            spyOn(greeterService, 'greet');
+
+            app2Ctrl.greetingFromController();
+
+            expect(greeterService.greet).toHaveBeenCalledWith('App2Ctrl');
+        });
+
+        it('should return result from GreeterService', function () {
+            expect(app2Ctrl.greetingFromController()).toEqual('mock says hi');
+        });
     });
 });
 
