@@ -3,6 +3,12 @@ An example AngularJS multi app front end build with Gulp and Maven using
 * [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin) on localhost and
 * [Exec Maven Plugin](http://www.mojohaus.org/exec-maven-plugin/) on CI server
 
+<pre>
+At the moment this should be considered as work in progress. I have not yet settled on which
+plugin I like the most or if the Gulp build is the optimal. I plan to update the project and
+the README as I get more experience.
+</pre>
+
 ## More details
 The project is using Maven to build the Java code and Gulp to build the multi app AngularJS front end.
 
