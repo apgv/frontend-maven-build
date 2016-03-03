@@ -5,7 +5,7 @@ An example AngularJS multi app front end build with Gulp and Maven using
 
 <pre>
 At the moment this should be considered as work in progress. I have not yet settled on which
-plugin I like the most or if the Gulp build is the optimal. I plan to update the project and
+plugin I like the most or if the Gulp build is optimal. I plan to update the project and
 the README as I get more experience.
 </pre>
 
