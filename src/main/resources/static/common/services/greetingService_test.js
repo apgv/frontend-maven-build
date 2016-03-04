@@ -1,8 +1,8 @@
 'use strict';
 
-describe('sharedServices module', function () {
+describe('commonServices module', function () {
 
-    beforeEach(module('sharedServices'));
+    beforeEach(module('commonServices'));
 
     describe('GreeterService', function () {
         var greeterService;

@@ -1,8 +1,8 @@
 'use strict';
 
-var sharedServices = angular.module('sharedServices', []);
+var commonServices = angular.module('commonServices');
 
-sharedServices.factory('GreeterService', function () {
+commonServices.factory('GreeterService', function () {
     var service = {};
 
     service.greet = function (greeter) {
