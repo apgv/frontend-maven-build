@@ -186,7 +186,6 @@ Exec Maven Plugin uses the globally installed programs.
                                 <arguments>
                                     <argument>start</argument>
                                     <argument>karma.conf.ci.js</argument>
-                                    <argument>--single-run</argument>
                                 </arguments>
                             </configuration>
                         </execution>
